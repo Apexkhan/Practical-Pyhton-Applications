@@ -1,0 +1,33 @@
+import time
+import datetime
+
+#Create class that acts as a countdown
+def countdown(h,m,s):
+
+    #calculate the total number of seconds
+    total_seconds = h *3600 +m * 60 +5
+
+    #while loop that checks if total_seconds reaches zero
+    #If not zero, decrement total time by one seconds
+    while total_seconds > 0:
+
+        #Timer represents time left on countdown
+        timer = datetime.timedelta(seconds = total_seconds)
+
+        #Prints the time left on the timer
+        print(timer, end= "\r")
+
+        #Delays the program one total_seconds
+        time.sleep(1)
+
+        #reduce total time by one seconds
+        total_seconds -= 1
+
+    print("Bzzzt ! The countdown is at zero seconds!!!!!")
+
+#Input for hours, minutres, seconds on Timer
+h = input("Enter the time in hours:  ")
+m = input("Enter the time in minutes:  ")
+s = input("Enter the time in seconds:  ")
+
+countdown(int(h),int(m),int(s))
